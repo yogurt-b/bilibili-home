@@ -190,11 +190,22 @@
         <!-- 推荐列表 -->
         <div class="recommended-container">
             <div class="carousel-area">
-                <img src="./img/u=3138039651,2061266613&fm=253&fmt=auto&app=138&f=JPEG.webp" alt="">
+                <ul id="image">
+                    <li><a href="/"><img src="./img/1.webp" alt=""></a></li>
+                    <li><a href="/"><img src="./img/2.avif" alt=""></a></li>
+                    <li><a href="/"><img src="./img/3.avif" alt=""></a></li>
+                    <li><a href="/"><img src="./img/4.avif" alt=""></a></li>
+                    <li><a href="/"><img src="./img/5.avif" alt=""></a></li>
+                    <li><a href="/"><img src="./img/6.avif" alt=""></a></li>
+                    <li><a href="/"><img src="./img/7.avif" alt=""></a></li>
+                    <li><a href="/"><img src="./img/8.avif" alt=""></a></li>
+                    <li><a href="/"><img src="./img/9.avif" alt=""></a></li>
+                </ul>
+                
                 <div class="mask"></div>
                 <div class="tools">
                     <a href="/">午餐肉可以晚上吃吗？专家们这么说...</a>
-                    <ul>
+                    <ul id="location_list">
                         <li class="active"></li>
                         <li></li>
                         <li></li>
@@ -206,12 +217,12 @@
                         <li></li>
                     </ul>
                     <div class="buttons">
-                        <button>
+                        <button id="prev">
                             <svg style="transform:rotate(180deg);" viewBox="0 0 1024 1024">
                                 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="145.067" stroke="currentColor" d="m341.333 170.667 341.334 341.332-341.334 341.335"></path>
                             </svg>
                         </button>
-                        <button>
+                        <button id="next">
                             <svg viewBox="0 0 1024 1024">
                                 <path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-width="145.067" stroke="currentColor" d="m341.333 170.667 341.334 341.332-341.334 341.335"></path>
                             </svg>
@@ -219,6 +230,8 @@
                     </div>
                 </div>
             </div>
+            <script src="index.js"></script>
+            
             <div class="recomended-card">
                 <a href="/">
                     <div class="card-image">

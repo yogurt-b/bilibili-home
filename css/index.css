@@ -430,8 +430,29 @@
     position: relative;
 }
 
-.carousel-area img {
-    width: 100%;
+.carousel-area #image {
+    /* 根据轮播改为固定宽度，无法自适应 */
+    width: 5550px;
+    position: absolute;
+    /* opacity: 0;
+    transition: opacity 1s; */
+    left: 0px;
+    /* 初始位置 */
+    transition: left 0.5s ease 0s;
+    /*图片跳转的过渡效果*/
+    
+    /* 提高层级防止链接被覆盖无法点击 */
+    /* z-index: 99; */
+}
+
+.carousel-area #image img {
+    /* 根据轮播改为固定宽度，无法自适应 */
+    width: 555px;
+}
+
+.carousel-area #image li {
+    float: left;
+    /* li排成一排显示 */
 }
 
 .carousel-area .mask {
@@ -441,6 +462,7 @@
     top: 0;
     background: linear-gradient(0, #d4982f 23%, transparent 35%);
     border-radius: 6px;
+    pointer-events: none; /* 让鼠标事件穿透 */
 }
 
 .carousel-area .tools {
@@ -496,6 +518,7 @@
     justify-content: center;
     color: #61666d;
     background-color: #ffffff1a;
+    cursor: pointer;
     /* background-color: #2eadcd; */
 }
 
