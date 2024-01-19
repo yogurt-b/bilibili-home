@@ -1,3 +1,5 @@
+//轮播图
+
 //图片列表
 var carousel = document.querySelector('.carousel-area')
 var items = document.getElementById('image')
@@ -15,7 +17,7 @@ var next = document.querySelector('#next')
 // 将第一张图片加到最后一张，方便循环
 var oli = document.querySelector("#image li:first-child")
 items.innerHTML += oli.innerHTML
-console.log(items)
+// console.log(items)
 
 // 当前显示的图片定位
 var img_location = 0
@@ -136,4 +138,26 @@ prev.onclick = function () {
         islock = false
     }, 500)
 }
+
+
+// 右侧频道变色
+
+var channel_items = document.querySelectorAll('.channel-items_right a')
+console.log(channel_items)
+
+channel_items.forEach(function(right_item) {
+    //鼠标悬停改变颜色
+    right_item.addEventListener("mouseover", function () {
+        right_item.querySelector('span').style.color = '#00aeec';
+        right_item.querySelector('svg').style.fill = '#00aeec';
+    })
+
+    // 鼠标离开恢复颜色
+    right_item.addEventListener("mouseout", function () {
+        right_item.querySelector('span').style.color = '#61666d';
+        right_item.querySelector('svg').style.fill = '#61666d';
+    });
+})
+    
+
 

@@ -358,19 +358,16 @@
     height: 20px;
     margin-right: 4px;
     fill: #61666d;
-    /* transition: fill .3s; */
+    transition: fill .3s;
 }
 
 .channel-items_right span {
     color: #61666d;
-    /* transition: color .3s; */
+    transition: color .3s;
 }
 
-/* 同时变色问题 */
-/* .channel-items_right a:hover {
-    color: #31b9ea;
-    fill: #31b9ea;
-} */
+/* 同时变色问题 用JS解决 */
+
 
 /* 推荐列表 */
 .main {
