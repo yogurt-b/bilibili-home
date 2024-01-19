@@ -2,6 +2,9 @@
 var carousel = document.querySelector('.carousel-area')
 var items = document.getElementById('image')
 
+// 文字列表
+var text_list = document.querySelectorAll('#text_list>li')
+
 // 圆点列表
 var location_list = document.querySelectorAll('#location_list>li')
 
@@ -68,16 +71,20 @@ next.onclick = function () {
         items.style.left = -555 * img_location + "px"
         items.style.transition = "left 0.5s ease 0s"
         
-        // 更改圆点激活状态
+        // 更改圆点激活状态和文字透明度
         if (img_location === 9) {
             dot_location = 0
             location_list[dot_location].className = "active"
             location_list[8].className = "none"
+            text_list[dot_location].className = "active-text"
+            text_list[8].className = "none"
         } else {
             // 激活当前定位的圆点
             location_list[dot_location].className = "active"
             // 上一个圆点取消激活状态
             location_list[dot_location - 1].className = "none"
+            text_list[dot_location].className = "active-text"
+            text_list[dot_location - 1].className = "none"
         }
     },0)
 
@@ -108,16 +115,20 @@ prev.onclick = function () {
         items.style.left = -555 * img_location + "px"
         items.style.transition = "left 0.5s ease 0s"
         
-        // 更改圆点激活状态
+        // 更改圆点激活状态和文字透明度
         if (img_location === 8) {
             dot_location = 8
             location_list[dot_location].className = "active"
             location_list[0].className = "none"
+            text_list[dot_location].className = "active-text"
+            text_list[0].className = "none"
         } else {
             // 激活当前定位的圆点
             location_list[dot_location].className = "active"
             // 上一个圆点取消激活状态
             location_list[dot_location + 1].className = "none"
+            text_list[dot_location].className = "active-text"
+            text_list[dot_location + 1].className = "none"
         }
     },0)
 

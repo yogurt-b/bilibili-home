@@ -19,6 +19,7 @@
     margin-right: 20px;
 }
 
+/* 增加小跳效果 */
 .left-entry .entry-title:hover {
     animation: jump 0.4s;
 }
@@ -143,6 +144,8 @@
 .right-entry-item a span {
     font-size: 13px;
 }
+
+
 
 .right-entry .upload {
     display: flex;
@@ -474,19 +477,32 @@
     box-sizing: border-box;
 }
 
+
 .carousel-area .tools a {
     display: flex;
     margin-bottom: 10px;
+    
+    /* top:0; */
     font-size: 18px;
     color: #fff;
+    /* 让文字重叠 */
+    position: absolute;
+    /* 为啥是负的 我也不到 能跑就行 */
+    top:-30px;
+    /* 透明度 */
+    opacity: 0;
 }
 
-.carousel-area .tools ul {
+.carousel-area .tools #text_list li.active-text a {
+    opacity: 1;
+}
+
+.carousel-area .tools #location_list {
     display: flex;
 
 }
 
-.carousel-area .tools li {
+.carousel-area .tools #location_list li {
     width: 8px;
     height: 8px;
     margin: 4px;
@@ -495,7 +511,7 @@
     cursor: pointer;
 }
 
-.carousel-area .tools li.active {
+.carousel-area .tools #location_list li.active {
     width: 14px;
     height: 14px;
     margin: 1px;
