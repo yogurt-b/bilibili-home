@@ -145,6 +145,23 @@
     font-size: 13px;
 }
 
+/* 动画 */
+/* 做的时候没有分开svg和文字 不会做单独svg跳跃 */
+.right-entry-item svg:hover {
+    animation: jumpsvg 0.4s;
+}
+
+@keyframes jumpsvg {
+	0% {
+		padding-bottom: 2px;
+    }
+	50% {
+		padding-bottom: 6px;
+	}
+	100% {
+		padding-bottom: 2px;
+	}
+}
 
 
 .right-entry .upload {
@@ -158,6 +175,11 @@
     color: #fff;
     background-color: #fb7299;
     margin-left: 10px;
+    transition: background-color .3s;
+}
+
+.right-entry .upload:hover {
+    background-color: #fa87a8;
 }
 
 .right-entry .upload span {
@@ -245,14 +267,29 @@
 
 .bili-channel .icon-bg_dynamic {
     background-color: #ff9212;
+    transition: background-color .3s;
+}
+
+.bili-channel .icon-bg_dynamic:hover {
+    background-color: #faa543;;
 }
 
 .bili-channel .icon-bg_popular {
     background-color: #f07775;
+    transition: background-color .3s;
+}
+
+.bili-channel .icon-bg_popular:hover {
+    background-color: #ed8d8b;;
 }
 
 .bili-channel .icon-bg_channel {
     background-color: #59ca73;
+    transition: background-color .3s;
+}
+
+.bili-channel .icon-bg_channel:hover {
+    background-color: #83cf95;;
 }
 
 .bili-channel .icon-bg svg {
@@ -285,6 +322,12 @@
     border-radius: 6px;
     text-align: center;
     color: #61666d;
+    transition: background-color .3s;
+}
+
+.bili-channel .channel-items_left a:hover {
+    background-color: #e0e0e0;
+    color: #303030;
 }
 
 /* 右侧频道列表 */
@@ -315,11 +358,19 @@
     height: 20px;
     margin-right: 4px;
     fill: #61666d;
+    /* transition: fill .3s; */
 }
 
 .channel-items_right span {
     color: #61666d;
+    /* transition: color .3s; */
 }
+
+/* 同时变色问题 */
+/* .channel-items_right a:hover {
+    color: #31b9ea;
+    fill: #31b9ea;
+} */
 
 /* 推荐列表 */
 .main {
@@ -527,15 +578,20 @@
 .tools button {
     width: 28px;
     height: 28px;
+    border: 0px;
     border-radius: 8px;
     margin-right: 8px;
     display: inline-flex; 
     align-items: center;
     justify-content: center;
     color: #61666d;
-    background-color: #ffffff1a;
+    background-color: #ffffff2e;
     cursor: pointer;
     /* background-color: #2eadcd; */
+}
+
+.tools button:hover {
+    background-color:#ffffff53
 }
 
 .tools button:last-child {
