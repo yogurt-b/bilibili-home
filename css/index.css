@@ -620,6 +620,11 @@
     text-align: center;
     font-size: 12px;
     cursor: pointer;
+    transition: background-color .3s;
+}
+
+.change:hover {
+    background-color: #dedede;
 }
 
 .change svg {

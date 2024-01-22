@@ -4,6 +4,13 @@
 var carousel = document.querySelector('.carousel-area')
 var items = document.getElementById('image')
 
+var imageTags = items.getElementsByTagName('img');
+// console.log(imageTags[0])
+
+//遮罩层
+var mask = document.querySelector(".carousel-area .mask")
+// console.log(mask)
+
 // 文字列表
 var text_list = document.querySelectorAll('#text_list>li')
 
@@ -29,7 +36,7 @@ var timer = null
 // 默认不上锁，该状态为了保证点击过快时过渡效果能完整呈现
 var islock = false
 
-console.log('js start')
+// console.log('js start')
 
 // 定义一个全局函数，自动跳到下一张，方便鼠标移入移出时调用
 function move() {
@@ -48,6 +55,34 @@ carousel.onmouseenter = function () {
 // 鼠标移出，调用自动播放
 carousel.onmouseleave = function () {
     move()
+}
+
+
+function getMainColor(imagePath, i) {
+    // console.log("start")
+    var image=new Image()
+    image.src=imagePath[i].src;
+    // console.log(image)
+    var canvas=document.getElementById("canvas")
+    var ctx = canvas.getContext('2d');
+
+    ctx.drawImage(image,0,0);
+    image.style.display = 'none'
+    let imgData = (ctx.getImageData(0, 150, image.width, image.height-150)).data  //x开始复制的左上角位置的 x 坐标。 y 开始复制的左上角位置的 y 坐标。 width 将要复制的矩形区域的宽度。 height 将要复制的矩形区域的高度。 
+     // ImageData.data	类型为Uint8ClampedArray的一维数组，每四个数组元素代表了一个像素点的RGBA信息，每个元素数值介于0~255
+    // var b = '(' + imgData[0] + ',' + imgData[1] + ',' + imgData[2] + ',' +  imgData[3] + ')'
+    // var c = '(' + imgData[4] + ',' + imgData[5] + ',' + imgData[6]  + ',' +  imgData[7] + ')'
+    // var d = '(' + 255 + ',' + 255 + ',' + 255  + ',' +  255 + ')'
+    // var rescolor = 'linear-gradient( rgb' + b + ',rgb' + c + ',rgb' + d
+    // mask.style.background = "linear-gradient(0," + rescolor + "23%, transparent 35%)"
+    // var b = `(${imgData[0]}, ${imgData[1]}, ${imgData[2]}, ${imgData[3]})`;
+    // var c = `(${imgData[4]}, ${imgData[5]}, ${imgData[6]}, ${imgData[7]})`;
+    // var d = '(255, 255, 255, 255)';
+    // var rescolor = `rgb${b}, rgb${c}, rgb${d}`;
+
+    var rescolor = 'rgb(' + imgData[0] + ', ' + imgData[1] + ',' + imgData[2] + ')'    
+
+    mask.style.background = `linear-gradient(0, ${rescolor} 23%, transparent 35%)`;
 }
 
 // 点击按钮切换下一张
@@ -71,12 +106,13 @@ next.onclick = function () {
         img_location++
         dot_location++
         items.style.left = -555 * img_location + "px"
-        items.style.transition = "left 0.5s ease 0s"
-        
+        items.style.transition = "left 0.4s ease 0s"
+        getMainColor(imageTags, img_location)
+
         // 更改圆点激活状态和文字透明度
         if (img_location === 9) {
             dot_location = 0
-            location_list[dot_location].className = "active"
+            location_list[dot_location].className= "active"
             location_list[8].className = "none"
             text_list[dot_location].className = "active-text"
             text_list[8].className = "none"
@@ -115,7 +151,8 @@ prev.onclick = function () {
         img_location--
         dot_location--
         items.style.left = -555 * img_location + "px"
-        items.style.transition = "left 0.5s ease 0s"
+        items.style.transition = "left 0.4s ease 0s"
+        getMainColor(imageTags, img_location)
         
         // 更改圆点激活状态和文字透明度
         if (img_location === 8) {
